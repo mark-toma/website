@@ -6,15 +6,13 @@ permalink: /
 
 # Welcome
 
-A minimalist technical website built with 11ty.
+... to my personal website.
 
-```
-$ ls -la
-  .
-  ..
-  projects/
-  blog/
-  about/
+```shell
+$ ls -1p
+about/
+resume/
+blog/
 ```
 
 This is a fixed-width aesthetic inspired by terminal interfaces and notepad simplicity.

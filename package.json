@@ -13,6 +13,7 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@11ty/eleventy": "^3.1.8"
+    "@11ty/eleventy": "^3.1.8",
+    "feather-icons": "^4.29.2"
   }
 }

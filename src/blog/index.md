@@ -8,10 +8,12 @@ permalink: /blog/
 
 Technical writings and thoughts.
 
-## Recent Posts
+```shell
+$ sudo journalctl -u blog.service
+# See posts below...
+```
 
-- Coming soon...
+## Posts
 
----
+Coming soon...
 
-Check back for updates.
