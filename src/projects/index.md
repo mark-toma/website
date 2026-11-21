@@ -2,7 +2,8 @@
 layout: base.html
 title: Projects
 permalink: /projects/
-siteTitle: mark
+siteTitle: mark-toma
+siteTitleSuffix: szewski
 author: Mark Tomaszewski
 ---
 

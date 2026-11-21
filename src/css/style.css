@@ -44,10 +44,15 @@ body {
 
 .nav {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.site-title {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
 .nav-link {
@@ -157,12 +162,6 @@ li {
 
 /* Responsive */
 @media (max-width: 600px) {
-  .nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-  
   .nav-list {
     gap: 1rem;
   }
