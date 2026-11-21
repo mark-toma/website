@@ -2,9 +2,6 @@
 layout: base.html
 title: About
 permalink: /about/
-siteTitle: mark-toma
-siteTitleSuffix: szewski
-author: Mark Tomaszewski
 ---
 
 # About

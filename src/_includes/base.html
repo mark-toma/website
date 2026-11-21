@@ -10,7 +10,7 @@
     <div class="container">
         <header class="header">
             <nav class="nav">
-                <a href="/" class="site-title"><strong>{{ siteTitle }}</strong>{{ siteTitleSuffix }}</a>
+                <a href="/" class="site-title"><strong>{{ site.siteTitle }}</strong>{{ site.siteTitleSuffix }}</a>
                 <ul class="nav-list">
                     <li><a href="/about/" class="nav-link">about</a></li>
                     <li><a href="/projects/" class="nav-link">projects</a></li>
@@ -24,7 +24,7 @@
         </main>
         
         <footer class="footer">
-            <p>&copy; 2024 {{ author }}. All rights reserved.</p>
+            <p>&copy; {{ site.currentYear }} {{ site.author }}. All rights reserved.</p>
         </footer>
     </div>
 </body>

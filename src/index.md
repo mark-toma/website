@@ -2,9 +2,6 @@
 layout: base.html
 title: Home
 permalink: /
-siteTitle: mark-toma
-siteTitleSuffix: szewski
-author: Mark Tomaszewski
 ---
 
 # Welcome

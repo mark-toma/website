@@ -2,9 +2,6 @@
 layout: base.html
 title: Blog
 permalink: /blog/
-siteTitle: mark-toma
-siteTitleSuffix: szewski
-author: Mark Tomaszewski
 ---
 
 # Blog
