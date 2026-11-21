@@ -12,6 +12,32 @@ export default function(eleventyConfig) {
     }
     return svg.toSvg(options);
   });
+
+  eleventyConfig.addFilter("readableDate", (dateObj) => {
+    return new Date(dateObj).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  });
+
+  eleventyConfig.addFilter("htmlDateString", (dateObj) => {
+    return new Date(dateObj).toISOString().split('T')[0];
+  });
+
+  eleventyConfig.addCollection("blog", (collection) => {
+    const blog = collection
+      .getFilteredByGlob("src/blog/posts/*.md")
+      .sort((a, b) => b.date - a.date);
+    
+    // Add previous and next references to each post
+    for (let i = 0; i < blog.length; i++) {
+      blog[i].data.previousPost = blog[i + 1] || null;
+      blog[i].data.nextPost = blog[i - 1] || null;
+    }
+    
+    return blog;
+  });
   
   return {
     dir: {

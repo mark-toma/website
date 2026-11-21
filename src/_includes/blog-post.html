@@ -1,0 +1,29 @@
+---
+layout: base.html
+---
+
+<article class="blog-post">
+  <header class="blog-post-header">
+    <h1>{{ title }}</h1>
+    <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+  </header>
+  
+  {{ content | safe }}
+</article>
+
+<nav class="blog-post-nav">
+  {% if previousPost %}
+    <a href="{{ previousPost.url }}" class="nav-link-text">« prev</a>
+  {% else %}
+    <span class="nav-link-text nav-link-disabled">« prev</span>
+  {% endif %}
+  
+  <a href="#top" class="nav-link-text" onclick="window.scrollTo(0, 0); return false;">goto top</a>
+  <a href="/blog/" class="nav-link-text">all posts</a>
+  
+  {% if nextPost %}
+    <a href="{{ nextPost.url }}" class="nav-link-text">next »</a>
+  {% else %}
+    <span class="nav-link-text nav-link-disabled">next »</span>
+  {% endif %}
+</nav>

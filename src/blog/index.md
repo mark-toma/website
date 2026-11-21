@@ -15,5 +15,7 @@ $ sudo journalctl -u blog.service
 
 ## Posts
 
-Coming soon...
+{% for post in collections.blog %}
+[{{ post.date | htmlDateString }}] [{{ post.data.title }}]({{ post.url }})
+{% endfor %}
 
