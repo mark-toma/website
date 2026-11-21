@@ -9,8 +9,8 @@
 <body>
     <div class="container">
         <header class="header">
+            <a href="/" class="site-title"><strong>{{ site.siteTitle }}</strong>{{ site.siteTitleSuffix }}</a>
             <nav class="nav">
-                <a href="/" class="site-title"><strong>{{ site.siteTitle }}</strong>{{ site.siteTitleSuffix }}</a>
                 <ul class="nav-list">
                     <li><a href="/about/" class="nav-link">about</a></li>
                     <li><a href="/resume/" class="nav-link">resume</a></li>
@@ -24,7 +24,12 @@
         </main>
         
         <footer class="footer">
-            <p>&copy; {{ site.currentYear }} {{ site.author }}. All rights reserved.</p>
+            <ul class="social-links">
+                <li>{{ "mail" | icon | safe }} <a href="mailto:mark@mark-toma.com">Email</a></li>
+                <li>{{ "linkedin" | icon | safe }} <a href="https://www.linkedin.com/in/mark-tomaszewski/">LinkedIn</a></li>
+                <li>{{ "github" | icon | safe }} <a href="https://github.com/mark-toma">GitHub</a></li>
+            </ul>
+            <p>&copy; {{ site.currentYear }} {{ site.author }}. </br> All rights reserved.</p>
         </footer>
     </div>
 </body>

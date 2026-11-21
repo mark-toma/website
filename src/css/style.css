@@ -38,14 +38,13 @@ body {
 /* Header & Navigation */
 .header {
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 2rem;
   margin-bottom: 2rem;
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 1.5rem;
 }
 
@@ -53,6 +52,8 @@ body {
   color: var(--text-color);
   text-decoration: none;
   transition: color 0.2s;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
 }
 
 .nav-link {
@@ -70,6 +71,8 @@ body {
   display: flex;
   list-style: none;
   gap: 2rem;
+  margin-left: 0rem;
+  margin-top: 1rem;
 }
 
 .nav-list a {
@@ -177,6 +180,25 @@ li {
   text-align: center;
   font-size: 0.9rem;
   color: #666;
+}
+
+.footer .social-links {
+  margin-left: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer .social-links li {
+  gap: 0.5rem;
+}
+
+.footer .social-links li svg {
+  width: 1rem;
+  height: 1rem;
 }
 
 /* Responsive */
