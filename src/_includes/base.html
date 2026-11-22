@@ -42,10 +42,12 @@
         
         <footer class="footer">
             <ul class="social-links">
-                <li>{{ "mail" | icon | safe }} <a href="mailto:mark@mark-toma.com">Email</a></li>
-                <li>{{ "linkedin" | icon | safe }} <a href="https://www.linkedin.com/in/mark-tomaszewski/">LinkedIn</a></li>
-                <li>{{ "github" | icon | safe }} <a href="https://github.com/mark-toma">GitHub</a></li>
+                <li><a href="mailto:mark@mark-toma.com" class="social-icon" title="Email">{{ "mail" | icon | safe }}</a></li>
+                <li><a href="https://www.linkedin.com/in/mark-tomaszewski/" class="social-icon" title="LinkedIn">{{ "linkedin" | icon | safe }}</a></li>
+                <li><a href="https://github.com/mark-toma" class="social-icon" title="GitHub">{{ "github" | icon | safe }}</a></li>
+                <li><a href="https://www.youtube.com/@mark-toma/videos" class="social-icon" title="YouTube">{{ "youtube" | icon | safe }}</a></li>
             </ul>
+            <p><a href="mailto:mark@mark-toma.com">mark@mark-toma.com</a></p>
             <p>&copy; {{ site.currentYear }} {{ site.author }}. </br> All rights reserved.</p>
         </footer>
     </div>

@@ -259,20 +259,36 @@ li {
 .social-links {
   list-style: none;
   padding: 0;
-  margin-left: 0.6rem;
+  margin-left: 0;
 }
 
 .social-links li {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  margin-bottom: 0;
+  line-height: 1;
 }
 
-.social-links li svg {
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  cursor: pointer;
+  position: relative;
+  line-height: 1;
+}
+
+.social-icon svg {
   flex-shrink: 0;
   width: 1.25rem;
   height: 1.25rem;
   color: var(--accent-color);
+  display: block;
+}
+
+.social-icon:hover svg {
+  opacity: 0.8;
 }
 
 /* Blog Post Navigation */
@@ -342,15 +358,15 @@ li {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-bottom: 1rem;
 }
 
 .footer .social-links li {
-  gap: 0.5rem;
+  gap: 0;
 }
 
-.footer .social-links li svg {
+.footer .social-icon svg {
   width: 1rem;
   height: 1rem;
 }
