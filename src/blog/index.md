@@ -16,6 +16,6 @@ $ sudo journalctl -u blog.service
 ## Posts
 
 {% for post in collections.blog %}
-[{{ post.date | htmlDateString }}] [{{ post.data.title }}]({{ post.url }})
+[{{ post.date | htmlDateString }}] [{{ post.data.title }}]({{ post.url | url(site.basePath) }})
 {% endfor %}
 
