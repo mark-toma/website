@@ -4,6 +4,33 @@ export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/assets");
   
+  eleventyConfig.addTransform("externalLinks", (content, outputPath) => {
+    if (outputPath?.endsWith(".html")) {
+      const isMarkTomaDomain = (url) => {
+        try {
+          const urlObj = new URL(url);
+          return urlObj.hostname === "mark-toma.com" || urlObj.hostname === "www.mark-toma.com";
+        } catch {
+          return false;
+        }
+      };
+      
+      return content.replace(/<a\s+([^>]*?)href=["']([^"']+)["']([^>]*)>/gi, (match, before, href, after) => {
+        const isExternal = href.startsWith("http://") || href.startsWith("https://");
+        const isMailto = href.startsWith("mailto:");
+        
+        if (isExternal && !isMailto && !isMarkTomaDomain(href)) {
+          if (before.includes('target=') || before.includes('rel=')) {
+            return match;
+          }
+          return `<a ${before}href="${href}"${after} target="_blank" rel="noopener noreferrer">`;
+        }
+        return match;
+      });
+    }
+    return content;
+  });
+  
   eleventyConfig.addFilter("icon", (iconName, options = {}) => {
     const svg = featherIcons.icons[iconName];
     if (!svg) {
