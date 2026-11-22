@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} | {{ site.siteDomain }}</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ '/css/style.css' | url(site.basePath) }}">
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <a href="/" class="site-title"><strong>{{ site.siteTitle }}</strong>{{ site.siteTitleSuffix }}</a>
+            <a href="{{ '/' | url(site.basePath) }}" class="site-title"><strong>{{ site.siteTitle }}</strong>{{ site.siteTitleSuffix }}</a>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="/about/" class="nav-link">about</a></li>
-                    <li><a href="/resume/" class="nav-link">resume</a></li>
-                    <li><a href="/blog/" class="nav-link">blog</a></li>
+                    <li><a href="{{ '/about/' | url(site.basePath) }}" class="nav-link">about</a></li>
+                    <li><a href="{{ '/resume/' | url(site.basePath) }}" class="nav-link">resume</a></li>
+                    <li><a href="{{ '/blog/' | url(site.basePath) }}" class="nav-link">blog</a></li>
                 </ul>
             </nav>
         </header>

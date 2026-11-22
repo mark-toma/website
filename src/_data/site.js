@@ -3,5 +3,6 @@ export default {
   siteTitleSuffix: "[szewski].com",
   siteDomain: "mark-toma.com",
   author: "Mark Tomaszewski",
-  currentYear: new Date().getFullYear()
+  currentYear: new Date().getFullYear(),
+  basePath: process.env.BASE_PATH || "/"
 };

@@ -25,6 +25,17 @@ export default function(eleventyConfig) {
     return new Date(dateObj).toISOString().split('T')[0];
   });
 
+  eleventyConfig.addFilter("url", (path, basePath = "/") => {
+    if (!path) return path;
+    if (path.startsWith("http://") || path.startsWith("https://") || path.startsWith("mailto:")) {
+      return path;
+    }
+    if (basePath === "/") {
+      return path;
+    }
+    return basePath.replace(/\/$/, "") + (path.startsWith("/") ? path : "/" + path);
+  });
+
   eleventyConfig.addCollection("blog", (collection) => {
     const blog = collection
       .getFilteredByGlob("src/blog/posts/*.md")
