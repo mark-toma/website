@@ -49,6 +49,7 @@
             </ul>
             <p><a href="mailto:mark@mark-toma.com">mark@mark-toma.com</a></p>
             <p>&copy; {{ site.currentYear }} {{ site.author }}. </br> All rights reserved.</p>
+            <p class="version-info"><small>version: <code title="Branch: {{ git.branch }}, Hash: {{ git.hash }}, Tag: {{ git.tag or 'none' }}, Dirty: {{ git.isDirty }}">{{ git.version }}</code></small></p>
         </footer>
     </div>
     
