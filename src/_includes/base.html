@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>{{ title }} | {{ site.siteDomain }}</title>
+    <link rel="icon" href="{{ '/favicon.svg' | url(site.basePath) }}" type="image/svg+xml">
+    <link rel="stylesheet" href="{{ '/css/style.css' | url(site.basePath) }}">
+    <script>
+        // Apply saved theme or system preference before page renders to avoid flash
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-top">
+                <a href="{{ '/' | url(site.basePath) }}" class="site-title"><strong>{{ site.siteTitle }}</strong>{{ site.siteTitleSuffix }}</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon-light">{{ "sun" | icon | safe }}</span>
+                    <span class="theme-icon-dark">{{ "moon" | icon | safe }}</span>
+                </button>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="{{ '/about/' | url(site.basePath) }}" class="nav-link">about</a></li>
+                    <li><a href="{{ '/resume/' | url(site.basePath) }}" class="nav-link">resume</a></li>
+                    <li><a href="{{ '/blog/' | url(site.basePath) }}" class="nav-link">blog</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main class="main">
+            {{ content | safe }}
+        </main>
+        
+        <footer class="footer">
+            <ul class="social-links">
+                <li><a href="mailto:mark@mark-toma.com" class="social-icon" title="Email">{{ "mail" | icon | safe }}</a></li>
+                <li><a href="https://www.linkedin.com/in/mark-tomaszewski/" class="social-icon" title="LinkedIn">{{ "linkedin" | icon | safe }}</a></li>
+                <li><a href="https://github.com/mark-toma" class="social-icon" title="GitHub">{{ "github" | icon | safe }}</a></li>
+                <li><a href="https://www.youtube.com/@mark-toma/videos" class="social-icon" title="YouTube">{{ "youtube" | icon | safe }}</a></li>
+            </ul>
+            <p><a href="mailto:mark@mark-toma.com">mark@mark-toma.com</a></p>
+            <p>&copy; {{ site.currentYear }} {{ site.author }}. </br> All rights reserved.</p>
+            <p class="version-info"><small>version: <code title="Branch: {{ git.branch }}, Hash: {{ git.hash }}, Tag: {{ git.tag or 'none' }}, Dirty: {{ git.isDirty }}">{{ git.version }}</code></small></p>
+        </footer>
+    </div>
+    
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        function setTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+        
+        function getCurrentTheme() {
+            return html.getAttribute('data-theme') || 'light';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = getCurrentTheme();
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            setTheme(newTheme);
+        });
+    </script>
+</body>
+</html>
