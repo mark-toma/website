@@ -6,7 +6,7 @@ permalink: /about/
 
 # About
 
-I'm a partner, brother, and son with a [knack](https://www.youtube.com/watch?v=g8vHhgh6oM0) for technology.
+I'm a partner, friend, brother, and son with a [knack](https://www.youtube.com/watch?v=g8vHhgh6oM0) for technology.
 
 ```shell
 $ whoami && groups | fold -sw 30
