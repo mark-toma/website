@@ -4,11 +4,15 @@
   "description": "My personal website.",
   "main": "_site/index.html",
   "scripts": {
+    "start": "serve _site",
     "build:dev": "BASE_PATH=/website-dev npm run build",
     "build:prod": "npm run build",
     "build": "eleventy",
     "dev": "eleventy --serve",
     "deploy:dev": "scp -r _site/* mark-toma.com:~/public_html/website-dev/"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
   },
   "keywords": [],
   "author": "Tomaszewski, Mark",
