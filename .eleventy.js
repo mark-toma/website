@@ -3,6 +3,7 @@ import featherIcons from 'feather-icons';
 export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/favicon.svg");
   
   eleventyConfig.addTransform("externalLinks", (content, outputPath) => {
     if (outputPath?.endsWith(".html")) {
