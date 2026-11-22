@@ -20,6 +20,26 @@
   }
 }
 
+/* Override with explicit theme when set */
+html[data-theme="light"] {
+  --bg-color: #fafafa;
+  --text-color: #1a1a1a;
+  --border-color: #e0e0e0;
+  --accent-color: #0066cc;
+  --code-bg-color: #f0f0f0;
+  --blockquote-text-color: #666;
+}
+
+html[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #fafafa;
+  --border-color: #333333;
+  --accent-color: #66b3ff;
+  --code-bg-color: #2d2d2d;
+  --blockquote-text-color: #999;
+  color-scheme: dark;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -54,6 +74,14 @@ body {
   margin-bottom: 2rem;
 }
 
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
 .nav {
   display: flex;
   flex-direction: column;
@@ -65,8 +93,9 @@ body {
   color: var(--text-color);
   text-decoration: none;
   transition: color 0.2s;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   font-size: 1.25rem;
+  line-height: 1;
 }
 
 .nav-link {
@@ -96,6 +125,66 @@ body {
 
 .nav-list a:hover {
   color: var(--accent-color);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: opacity 0.2s;
+  position: relative;
+}
+
+.theme-toggle:hover {
+  opacity: 0.7;
+}
+
+.theme-icon-light,
+.theme-icon-dark {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s, transform 0.3s;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.theme-icon-light svg,
+.theme-icon-dark svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+.theme-icon-light {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.theme-icon-dark {
+  opacity: 0;
+  transform: rotate(-180deg);
+}
+
+html[data-theme="dark"] .theme-icon-light {
+  opacity: 0;
+  transform: rotate(180deg);
+}
+
+html[data-theme="dark"] .theme-icon-dark {
+  opacity: 1;
+  transform: rotate(0deg);
 }
 
 /* Main Content */
@@ -270,6 +359,10 @@ li {
 @media (max-width: 600px) {
   .nav-list {
     gap: 1rem;
+  }
+  
+  .header-top {
+    flex-wrap: wrap;
   }
   
   h1 { font-size: 1.5rem; }

@@ -7,11 +7,26 @@
     <title>{{ title }} | {{ site.siteDomain }}</title>
     <link rel="icon" href="{{ '/favicon.svg' | url(site.basePath) }}" type="image/svg+xml">
     <link rel="stylesheet" href="{{ '/css/style.css' | url(site.basePath) }}">
+    <script>
+        // Apply saved theme or system preference before page renders to avoid flash
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <a href="{{ '/' | url(site.basePath) }}" class="site-title"><strong>{{ site.siteTitle }}</strong>{{ site.siteTitleSuffix }}</a>
+            <div class="header-top">
+                <a href="{{ '/' | url(site.basePath) }}" class="site-title"><strong>{{ site.siteTitle }}</strong>{{ site.siteTitleSuffix }}</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon-light">{{ "sun" | icon | safe }}</span>
+                    <span class="theme-icon-dark">{{ "moon" | icon | safe }}</span>
+                </button>
+            </div>
             <nav class="nav">
                 <ul class="nav-list">
                     <li><a href="{{ '/about/' | url(site.basePath) }}" class="nav-link">about</a></li>
@@ -34,5 +49,25 @@
             <p>&copy; {{ site.currentYear }} {{ site.author }}. </br> All rights reserved.</p>
         </footer>
     </div>
+    
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        function setTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+        
+        function getCurrentTheme() {
+            return html.getAttribute('data-theme') || 'light';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = getCurrentTheme();
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            setTheme(newTheme);
+        });
+    </script>
 </body>
 </html>
